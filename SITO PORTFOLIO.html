@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davide Curto | Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #f4f4f4;
+            --accent-color: #1976d2; 
+            --text-color: #333333;
+            --light-text: #666666;
+            --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-main); color: var(--text-color); background-color: var(--secondary-color); line-height: 1.6; }
+
+        header { background-color: #ffffff; padding: 12px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo { font-size: 22px; font-weight: 700; color: var(--primary-color); text-decoration: none; letter-spacing: 1px; }
+        nav ul { list-style: none; display: flex; gap: 30px; }
+        nav ul li a { text-decoration: none; color: var(--primary-color); font-weight: 500; font-size: 14px; text-transform: uppercase; transition: color 0.3s; }
+        nav ul li a:hover { color: var(--accent-color); }
+
+        .hero { background-color: var(--primary-color); color: #ffffff; padding: 45px 50px; }
+        .hero-container { display: flex; align-items: center; justify-content: center; gap: 80px; max-width: 1200px; margin: 0 auto; text-align: left; }
+        .hero-text { flex: 1; }
+        .hero h1 { font-size: 42px; margin-bottom: 12px; }
+        .hero p { font-size: 16px; margin-bottom: 25px; color: #cccccc; }
+        .profile-img { width: 220px; height: 220px; object-fit: cover; border-radius: 12px; border: 3px solid var(--accent-color); }
+        
+        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; }
+        .btn { display: inline-block; padding: 12px 25px; background-color: var(--accent-color); color: #ffffff; text-decoration: none; font-weight: bold; border-radius: 4px; border: 2px solid var(--accent-color); font-size: 13px; text-transform: uppercase; }
+        .btn:hover { background-color: #0d47a1; }
+        .btn-outline { background-color: transparent; border: 2px solid #ffffff; color: #ffffff; }
+
+        .works { padding: 60px 50px; }
+        .section-title { text-align: center; font-size: 32px; margin-bottom: 40px; color: var(--primary-color); }
+        .section-title::after { content: ''; width: 60px; height: 3px; background-color: var(--accent-color); display: block; margin: 12px auto 0 auto; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .card { background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .card-img { width: 100%; height: 300px; object-fit: cover; object-position: center; display: block; }
+        .card-img.img-shanghai { object-position: center 75%; }
+        .card-img.img-contain { object-fit: contain; background-color: #ffffff; padding: 15px; }
+        .card-img.img-top { object-position: top; }
+        .card-content { padding: 20px; text-align: center; }
+
+        footer { background-color: var(--primary-color); color: #ffffff; text-align: center; padding: 20px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">DAVIDE CURTO</a>
+        <nav>
+            <ul>
+                <li><a href="#about">Chi Sono</a></li>
+                <li><a href="#works">I Miei Lavori</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about" class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>Davide Curto | Product Designer</h1>
+                <p>Ciao, sono Davide Curto, un designer laureato presso la Sapienza Università di Roma. Vedo il design come un linguaggio sistemico che integra servizi, prodotti e branding. Credo nel potere educativo e di benessere del design.</p>
+                
+                <div class="btn-group">
+                    <a href="sito/Copy_of_DAVIDE_CURTO.pdf" class="btn" download>Scarica il mio Portfolio</a>
+                    <a href="sito/DAVIDE_CURTO_CV_ENG_1.pdf" class="btn btn-outline" download>Scarica il mio CV</a>
+                </div>
+            </div>
+            <div class="hero-image-box">
+                <img src="https://cdn.corenexis.com/files/c/8578651720.jpg" alt="Davide Curto" class="profile-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="works" class="works">
+        <h2 class="section-title">I Miei Lavori</h2>
+        <div class="grid">
+            <div class="card"><img src="https://i.postimg.cc/FHxxrG91/MEZZALUNA.png" alt="Mesaluna" class="card-img"><div class="card-content"><h3 class="card-title">MESALUNA</h3></div></div>
+            <div class="card"><img src="https://cdn.phototourl.com/free/2026-06-09-e967026d-3d46-4c99-b95f-47f1486ac4e8.png" alt="Bic Lighter" class="card-img"><div class="card-content"><h3 class="card-title">BIC LIGHTER</h3></div></div>
+            <div class="card"><img src="https://cdn.corenexis.com/files/c/1586383720.png" alt="Orbita" class="card-img"><div class="card-content"><h3 class="card-title">ORBITA</h3></div></div>
+            <div class="card"><img src="https://cdn.corenexis.com/files/c/8278165720.png" alt="Shanghai Table" class="card-img img-shanghai"><div class="card-content"><h3 class="card-title">SHANGHAI</h3></div></div>
+            <div class="card"><img src="https://cdn.corenexis.com/files/c/9338223720.jpg" alt="Trivio App" class="card-img img-contain"><div class="card-content"><h3 class="card-title">TRIVIO</h3></div></div>
+            <div class="card"><img src="https://cdn.corenexis.com/files/c/1962498720.png" alt="Mr. Hyde" class="card-img img-top"><div class="card-content"><h3 class="card-title">MR. HYDE</h3></div></div>
+            <div class="card"><img src="https://cdn.corenexis.com/files/c/5111473720.png" alt="ZeroWaste" class="card-img"><div class="card-content"><h3 class="card-title">ZEROWASTE</h3></div></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Davide Curto. Tutti i diritti riservati.</p>
+    </footer>
+
+</body>
+</html>
