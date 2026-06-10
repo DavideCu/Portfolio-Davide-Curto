@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davide Curto | Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #f4f4f4;
+            --accent-color: #1976d2; 
+            --text-color: #333333;
+            --light-text: #666666;
+            --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        /* Scroll fluido */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background-color: #ffffff;
+            padding: 12px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        section {
+            scroll-margin-top: 65px; 
+        }
+
+        /* Hero / About Me */
+        .hero {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 45px 50px; 
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 80px; 
+            max-width: 1200px; 
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero h1 {
+            font-size: 42px; 
+            margin-bottom: 12px; 
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 16px; 
+            margin-bottom: 25px; 
+            color: #cccccc;
+            line-height: 1.7;
+        }
+
+        .hero-image-box {
+            flex-shrink: 0;
+        }
+
+        .profile-img {
+            width: 220px; 
+            height: 220px; 
+            object-fit: cover;
+            border-radius: 12px;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px; 
+            background-color: var(--accent-color);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background-color 0.3s, transform 0.3s, color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid var(--accent-color);
+            font-size: 13px;
+        }
+
+        .btn:hover {
+            background-color: #0d47a1; 
+            border-color: #0d47a1;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #ffffff;
+            color: #ffffff;
+        }
+
+        .btn-outline:hover {
+            background-color: #ffffff;
+            color: var(--primary-color);
+            border-color: #ffffff;
+        }
+
+        /* Works Section */
+        .works {
+            padding: 60px 50px; 
+            background-color: var(--secondary-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px; 
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            display: block;
+            margin: 12px auto 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 300px; 
+            object-fit: cover; 
+            object-position: center; 
+            display: block;
+        }
+
+        .card-img.img-contain {
+            object-fit: contain;
+            background-color: #ffffff;
+            padding: 15px;
+        }
+
+        .card-img.img-shanghai {
+            object-position: center 75%;
+        }
+
+        .card-img.img-top {
+            object-position: top;
+        }
+
+        .card-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 18px;
+            color: var(--primary-color);
+            letter-spacing: 0.5px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #ffffff;
+            padding: 80px 50px;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            font-size: 18px;
+        }
+
+        .contact-item strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .contact-item a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        /* =========================================
+           REGOLE PER IL TELEFONO E SCHERMI PICCOLI
+           ========================================= */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero-container {
+                flex-direction: column-reverse; /* Mette la foto sopra il testo */
+                text-align: center;
+                gap: 30px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .btn-group {
+                justify-content: center;
+            }
+
+            .works, .contact {
+                padding: 50px 20px;
+            }
+
+            .grid {
+                /* Riduce la grandezza minima della colonna per evitare che sbordi dallo schermo */
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 25px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">DAVIDE CURTO</a>
+        <nav>
+            <ul>
+                <li><a href="#about">Chi Sono</a></li>
+                <li><a href="#works">I Miei Lavori</a></li>
+                <li><a href="#contact">Contattami</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about" class="hero">
+        <div class="hero-container">
+            
+            <div class="hero-text">
+                <h1>Davide Curto | Product Designer</h1>
+                <p>Ciao, sono Davide Curto, un designer laureato presso la Facoltà di Architettura della Sapienza Università di Roma. Vedo il design come un linguaggio sistemico in grado di integrare servizi, prodotti e branding in un'unica esperienza coesa. Guidato dai miei valori come capo scout, credo nel potere educativo e di benessere del design. Sono anche un grande appassionato di musica, suono il pianoforte e la chitarra nel tempo libero.</p>
+                
+                <div class="btn-group">
+                    <a href="sito/Copy_of_DAVIDE_CURTO.pdf" class="btn" download>Scarica il mio Portfolio</a>
+                    <a href="sito/DAVIDE_CURTO_CV_ENG_1.pdf" class="btn btn-outline" download>Scarica il mio CV</a>
+                </div>
+            </div>
+
+            <div class="hero-image-box">
+                <img src="https://cdn.corenexis.com/files/c/8578651720.jpg" alt="Davide Curto" class="profile-img">
+            </div>
+
+        </div>
+    </section>
+
+    <section id="works" class="works">
+        <h2 class="section-title">I Miei Lavori</h2>
+        <div class="grid">
+            
+            <div class="card">
+                <img src="https://i.postimg.cc/FHxxrG91/MEZZALUNA.png" alt="Mesaluna" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">MESALUNA</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn.phototourl.com/free/2026-06-09-e967026d-3d46-4c99-b95f-47f1486ac4e8.png" alt="Bic Lighter" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">BIC LIGHTER</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn.corenexis.com/files/c/1586383720.png" alt="Orbita" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">ORBITA</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn.corenexis.com/files/c/8278165720.png" alt="Shanghai Table" class="card-img img-shanghai">
+                <div class="card-content">
+                    <h3 class="card-title">SHANGHAI</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn.corenexis.com/files/c/9338223720.jpg" alt="Trivio App" class="card-img img-contain">
+                <div class="card-content">
+                    <h3 class="card-title">TRIVIO</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn.corenexis.com/files/c/1962498720.png" alt="Mr. Hyde" class="card-img img-top">
+                <div class="card-content">
+                    <h3 class="card-title">MR. HYDE</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn.corenexis.com/files/c/5111473720.png" alt="ZeroWaste" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">ZEROWASTE</h3>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Contattami</h2>
+        <p style="color: var(--light-text); max-width: 600px; margin: 0 auto 40px auto; font-size: 16px;">
+            Sei un'azienda o un professionista alla ricerca di un designer appassionato e orientato alla soluzione? Parliamone.
+        </p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <strong>Email</strong>
+                <a href="mailto:davidecurto04@gmail.com">davidecurto04@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <strong>Telefono</strong>
+                <a href="tel:+393515551645">+39 351 555 1645</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Davide Curto. Tutti i diritti riservati.</p>
+    </footer>
+
+</body>
+</html>
